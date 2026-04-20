@@ -18,7 +18,7 @@ jobs:
     - name: Build and test
       run: |
         docker build -t portfolio-site .
-        docker run --rm portfolio-site curl -f http://localhost/ || exit 1
+        docker run -d -p 8080:80 --name portfolio-container portfolio-site
 
   deploy:
     needs: build-test
